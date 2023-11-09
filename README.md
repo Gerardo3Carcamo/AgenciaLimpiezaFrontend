@@ -1,3 +1,9 @@
+# Proyecto frontend para un sistema de gestión de limpieza
+Este proyecto fue creado por Gerardo Rodrigo Chavez Carcamo, el cual es para el proyecto del tercer parcial de la materia de Arquitectura de Software
+Para poder correr este proyecto, es necesario tener instalada la versión 15 del Framework Angular CLI 
+Despues de tener instalada la versión necesaria de Angular CLI, es necesario ubicarte en la carpeta src del proyecto y en una terminal integrada de VSCode ejecute el siguiente comando: "npm i", esto para instalar todas las dependencias necesarias.
+Las dependencias (librerias) instaladas son: PrimeNG, SweetAlert, etc...
+
 # App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
