@@ -1,0 +1,63 @@
+.menu {
+    background-color: var(--surface-a);
+    overflow: hidden;
+    height: 6rem;
+    align-items: center;
+    border-radius: 10px;
+    
+    overflow: auto;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu li {
+    float: left;
+}
+
+li {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    padding-top: 1.8rem;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.div-container li {
+    padding-bottom: .15rem;
+    background-size: .3rem .1rem;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    transition: .3s linear, background-size .3s .2s linear;
+}
+
+.div-container:hover li {
+    font-size: 1.9rem;
+}

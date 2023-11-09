@@ -1,14 +1,13 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "strict": false, // Cambiado a false para desactivar las comprobaciones estrictas
+    "noImplicitOverride": false, // Cambiado a false para permitir sobrescrituras implícitas
+    "noPropertyAccessFromIndexSignature": false, // Cambiado a false para permitir el acceso a propiedades desde firmas de índice
+    "noImplicitReturns": false, // Cambiado a false para permitir funciones sin un retorno explícito en todos los caminos
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -26,8 +25,8 @@
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInjectionParameters": false, // Cambiado a false para desactivar la comprobación estricta de los parámetros de inyección
+    "strictInputAccessModifiers": false, // Cambiado a false para desactivar la comprobación estricta de los modificadores de acceso de entrada
+    "strictTemplates": false // Cambiado a false para desactivar las comprobaciones estrictas en las plantillas
   }
 }

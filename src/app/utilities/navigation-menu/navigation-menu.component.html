@@ -1,0 +1,18 @@
+<nav class="menu items-container">
+    <div class="dot"></div>
+    <ul *ngFor="let item of _items">
+        <div (click)="redirect(item.url)" class="div-container">
+            <span class="container">
+                <fa-icon *ngIf="item.iconColor"
+                style="font-size: 2rem; cursor: pointer;" 
+                [class]="'text-' + item.iconColor + '-500' + ' text-xxl'" 
+                [icon]="item.icon"></fa-icon> 
+                <fa-icon *ngIf="!item.iconColor"
+                style="font-size: 2rem; cursor: pointer;" 
+                [class]="'text-blue-500' + ' text-xxl' + ' icon'" 
+                [icon]="item.icon"></fa-icon> 
+                <li class="pl-3"> {{item.description}} </li>
+            </span>
+        </div>
+    </ul>
+</nav>

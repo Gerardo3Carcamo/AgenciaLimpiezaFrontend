@@ -10,17 +10,24 @@ import { PasswordModule } from 'primeng/password';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 import { LoginComponent } from './components/login/login.component';
 import { CalendarModule } from 'primeng/calendar';
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { AdministracionUsuariosComponent } from './components/administracion-usuarios/administracion-usuarios.component';
 import { TableModule } from 'primeng/table';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UtilitiesModule } from './utilities/utilities.module';
+import { HomeComponent } from './components/home/home.component';
+import { AsignarModulosComponent } from './components/asignar-modulos/asignar-modulos.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
     LoginComponent,
-    AdministracionUsuariosComponent
+    AdministracionUsuariosComponent,
+    HomeComponent,
+    AsignarModulosComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +42,9 @@ import { TableModule } from 'primeng/table';
     CalendarModule,
     HttpClientModule,
     TableModule,
+    FontAwesomeModule,
+    UtilitiesModule,
+    DropdownModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

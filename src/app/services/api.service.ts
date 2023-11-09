@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-
+ 
   url:string = 'https://localhost:7101/api/';
 
   PostMethod(params:any = {}, actionURL:string){

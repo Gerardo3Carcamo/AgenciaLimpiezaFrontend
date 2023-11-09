@@ -10,7 +10,7 @@ export class AppComponent implements OnInit{
   
   constructor(public router: Router){}
 
-  title = 'app';
+  title = 'Sistema gestion de limpieza';
 
   correo:any;
   password:any;

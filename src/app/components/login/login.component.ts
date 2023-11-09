@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog'
 import { RegistroUsuarioComponent } from '../registro-usuario/registro-usuario.component';
@@ -11,13 +11,22 @@ import { AlertService } from 'src/app/services/alert.service';
   styleUrls: ['./login.component.scss'],
   providers: [DialogService]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   constructor(public router: Router, public dialogService: DialogService, public api: ApiService, public alert: AlertService){}
 
   correo:any;
   password:any;
   ref: DynamicDialogRef = new DynamicDialogRef;
+
+  ngOnInit(): void {
+    console.log(localStorage.getItem("session"))
+    if(localStorage.getItem("session") !== 'undefined'){
+      this.redirect('home')
+    }else{
+      this.redirect('login')
+    }
+  }
 
   redirect($myParam: string = ''): void {
     const navigationDetails: string[] = ['/' + $myParam];
@@ -30,10 +39,9 @@ export class LoginComponent {
       Password: this.password
     }
     this.api.PostMethod(params, 'Usuario/Login').subscribe(x=>{
-      let validations = x.data;
-      console.log(validations) 
       if(x.data == 'DONE'){
-        this.redirect('admin-usuarios')
+        localStorage.setItem("session", x.session.toString())
+        this.redirect('home')
       }else{
         this.alert.error('Credenciales incorrectas, verifiquelas de nuevo', '');
       }
