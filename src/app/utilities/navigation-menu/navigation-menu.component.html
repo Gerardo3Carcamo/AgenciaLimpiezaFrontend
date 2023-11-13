@@ -1,7 +1,7 @@
 <nav class="menu items-container">
     <div class="dot"></div>
     <ul *ngFor="let item of _items">
-        <div (click)="redirect(item.url)" class="div-container">
+        <div (click)="redirect(item.url)" class="div-container" *ngIf="user == item.user">
             <span class="container">
                 <fa-icon *ngIf="item.iconColor"
                 style="font-size: 2rem; cursor: pointer;" 

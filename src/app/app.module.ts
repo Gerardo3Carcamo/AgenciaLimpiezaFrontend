@@ -19,6 +19,13 @@ import { UtilitiesModule } from './utilities/utilities.module';
 import { HomeComponent } from './components/home/home.component';
 import { AsignarModulosComponent } from './components/asignar-modulos/asignar-modulos.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { CatalogosComponent } from './components/catalogos/catalogos.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CardModule } from 'primeng/card';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { TabViewModule } from 'primeng/tabview';
+import { TooltipModule } from 'primeng/tooltip';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -27,7 +34,9 @@ import { DropdownModule } from 'primeng/dropdown';
     LoginComponent,
     AdministracionUsuariosComponent,
     HomeComponent,
-    AsignarModulosComponent
+    AsignarModulosComponent,
+    CatalogosComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,12 @@ import { DropdownModule } from 'primeng/dropdown';
     TableModule,
     FontAwesomeModule,
     UtilitiesModule,
-    DropdownModule
+    DropdownModule,
+    CardModule,
+    SpeedDialModule,
+    TabViewModule,
+    InputTextareaModule,
+    TooltipModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

@@ -1,0 +1,115 @@
+<app-navigation-menu></app-navigation-menu>
+<br>
+<p-tabView>
+    <p-tabPanel header="Tareas">
+        <div class="p-fluid p-formgrid grid">
+            <div class="field col-6">
+                <p-card header="Agregar nueva tarea">
+                    <div class="p-fluid p-formgrid grid">
+                        <div class="field col-4" style="padding-top: 2.25rem;">
+                            <span class="p-float-label" style="width: 100%;" >
+                                <input type="text" pInputText [(ngModel)]="tarea" />
+                                <label>Nombre de la tarea:</label>
+                            </span>
+                        </div>
+                        <div class="field col-4" style="padding-top: 2.25rem;">
+                            <span class="p-float-label" style="width: 100%;" >                                
+                                <p-dropdown [options]="Colonias" optionLabel="nombre" optionValue="coloniaID" placeholder="Colonia:" [(ngModel)]="coloniaID"></p-dropdown>
+                                <label>Colonia:</label>
+                            </span>
+                        </div>
+                        <div class="field col-4" style="padding-top: 2.25rem;">
+                            <span class="p-float-label" style="width: 100%;" >                                
+                                <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="descripcion"></textarea>
+                                <label>Descripcion:</label>
+                            </span>
+                        </div>
+                        <div class="field col-12" style="padding-top: 2.25rem;">
+                            <p-button icon="pi pi-save" label="Guardar tarea" [disabled]="!tarea || !coloniaID || !descripcion"
+                            styleClass="p-button-success" (onClick)="InsertTarea()"></p-button>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="field col-6">
+                <p-card header="Tareas disponibles">
+                    <p-table [value]="TareasTable" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '35rem' }">
+                        <ng-template pTemplate="caption"> 
+                            <p-button pTooltip="Recargar tabla" icon="pi pi-refresh" (onClick)="GetTareas()"></p-button>    
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="text-align: center; width: 20%;">ID Tarea</th>
+                                <th style="text-align: center; width: 20%;">Nombre</th>
+                                <th style="text-align: center; width: 20%;">Colonia</th>
+                                <th style="text-align: center; width: 20%;">Descripcion</th>
+                                <th style="text-align: center; width: 20%;"></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-product>
+                            <tr>
+                                <td style="text-align: center; width: 20%;">{{ product.tareaID }}</td>
+                                <td style="text-align: center; width: 20%;">{{ product.nombre }}</td>
+                                <td style="text-align: center; width: 20%;">{{ product.colonia }}</td>
+                                <td style="text-align: center; width: 20%;">{{ product.descripcion }}</td>
+                                <td style="text-align: center; width: 20%;">
+                                    <p-button icon="pi pi-check"></p-button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-card>
+            </div>
+        </div>
+    </p-tabPanel>
+    <!--Colonias Tab-->
+    <p-tabPanel header="Colonias">
+        <div class="p-fluid p-formgrid grid">
+            <div class="field col-6">
+                <p-card header="Agregar nueva colonia">
+                    <div class="p-fluid p-formgrid grid">
+                        <div class="field col-4" style="padding-top: 2.25rem;">
+                            <span class="p-float-label" style="width: 100%;" >
+                                <input type="text" pInputText [(ngModel)]="NombreColonia" />
+                                <label>Nombre de la colonia:</label>
+                            </span>
+                        </div>
+                        <div class="field col-4" style="padding-top: 2.25rem;">
+                            <span class="p-float-label" style="width: 100%;" >                                
+                                <input type="text" pInputText [(ngModel)]="CodigoPostal"/>
+                                <label>Codigo postal:</label>
+                            </span>
+                        </div>
+                        <div class="field col-4" style="padding-top: 2.25rem;">
+                            <p-button icon="pi pi-save" label="Guardar tarea" [disabled]="!NombreColonia || !CodigoPostal"
+                            styleClass="p-button-success" (onClick)="InsertColonia()"></p-button>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="field col-6">
+                <p-card header="Colonias disponibles">
+                    <p-table [value]="Colonias" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '35rem' }">
+                        <ng-template pTemplate="caption"> 
+                            <p-button pTooltip="Recargar tabla" icon="pi pi-refresh" (onClick)="GetColonias()"></p-button>    
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="text-align: center; width: 33%;">ID Colonia</th>
+                                <th style="text-align: center; width: 33%;">Nombre</th>
+                                <th style="text-align: center; width: 33%;">Codigo Postal</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-product>
+                            <tr>
+                                <td style="text-align: center; width: 33%;">{{ product.coloniaID }}</td>
+                                <td style="text-align: center; width: 33%;">{{ product.nombre }}</td>
+                                <td style="text-align: center; width: 33%;">{{ product.codigoPostal }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-card>
+            </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>

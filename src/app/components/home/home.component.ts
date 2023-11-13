@@ -11,8 +11,10 @@ export class HomeComponent implements OnInit{
 
   constructor(public api: ApiService, public alert: AlertService){}
 
+  session:any;
+
   ngOnInit(): void {
-      
+    this.session = localStorage.getItem('session')
   }
 
 }

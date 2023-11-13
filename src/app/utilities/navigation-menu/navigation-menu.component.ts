@@ -1,21 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faGear, faHome, faChartSimple, faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faHome, faChartSimple, faRightFromBracket, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navigation-menu',
   templateUrl: './navigation-menu.component.html',
   styleUrls: ['./navigation-menu.component.scss']
 })
-export class NavigationMenuComponent {
+export class NavigationMenuComponent implements OnInit{
 
   constructor(public router: Router){}
+
+  user:any;
+
+  ngOnInit(): void {
+    this.user = localStorage.getItem('session');
+  }
   
   protected _items: any = [
-    {url: 'home', icon: faHome, iconColor: 'blue', description: 'Inicio'},
-    {url: 'dashboard', icon: faChartSimple, iconColor: 'pink', description: 'Dashboard'},
-    {url: 'admin-usuarios', icon: faGear, iconColor: 'gray', description: 'Administración de usuarios'},
-    {url: 'log-out', icon: faRightFromBracket, iconColor: 'red', description: 'Cerrar sesion'},
+    {url: 'home', icon: faHome, iconColor: 'blue', description: 'Inicio', user: 2},
+    {url: 'dashboard', icon: faChartSimple, iconColor: 'pink', description: 'Dashboard',user: 1},
+    {url: 'catalogos', icon: faFolderOpen, iconColor: 'yellow', description: 'Catalogos', user: 1},
+    {url: 'admin-usuarios', icon: faGear, iconColor: 'gray', description: 'Administración', user: 1},
+    {url: 'log-out', icon: faRightFromBracket, iconColor: 'red', description: 'Cerrar sesion', user: 1},
   ];
 
   redirect($myParam: string = ''): void {

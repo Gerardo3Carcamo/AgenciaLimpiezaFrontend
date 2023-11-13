@@ -14,20 +14,32 @@ export class AdministracionUsuariosComponent implements OnInit{
 
   constructor(public api: ApiService, public alert: AlertService, public dialogService: DialogService){}
 
+  user: any = localStorage.getItem('session')
   users:any;
   ref: DynamicDialogRef = new DynamicDialogRef;
+  itemAdd: any = [
+    {
+      tooltipOptions: {
+        tooltipLabel: 'Agregar usuario a mi cuadrilla'
+      },
+      icon: 'pi pi-user-plus',
+      command: () =>{
+        
+      }
+    }
+  ]
 
   ngOnInit(): void {
+    console.log(this.user)
     this.GetDataUsers();
   }
 
   GetDataUsers(){
     this.api.GetMethod('Usuario/GetAllUsers').subscribe(x=>{
       if(x.error){
-        this.alert.error('Error', 'Ocurrio un error inesperado, intente de nuevo mas tarde')
+        this.alert.error('Error', 'Ocurrio un error inesperado, intente de nuevo más tarde')
       }else{
         this.users = x.data;
-        console.log(this.users)
       }
     });
   }
