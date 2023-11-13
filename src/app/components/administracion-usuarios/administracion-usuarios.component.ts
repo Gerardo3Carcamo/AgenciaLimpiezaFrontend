@@ -27,17 +27,20 @@ export class AdministracionUsuariosComponent implements OnInit{
         this.alert.error('Error', 'Ocurrio un error inesperado, intente de nuevo mas tarde')
       }else{
         this.users = x.data;
+        console.log(this.users)
       }
     });
   }
 
-  editModules(){
+  editModules(product){
+    console.log(product)
     this.ref =  this.dialogService.open(AsignarModulosComponent, {
       header: 'Asignar modulos a personal',
       width: '70%',
       contentStyle: {"overflow": "hidden"},
       baseZIndex: 10000,
-      maximizable: true
+      maximizable: true,
+      data: product
     });
     this.ref.onClose.subscribe(res => {
 

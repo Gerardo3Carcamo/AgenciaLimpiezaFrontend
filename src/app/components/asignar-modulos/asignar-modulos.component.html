@@ -1,9 +1,12 @@
 <div class="p-fluid p-formgrid grid">
     <div class="field col-4">
         <label>Rol:</label>
-        <p-dropdown appendTo="body" [options]="roles" optionValue="roleID" optionLabel="roleName" placeholder="Seleccione un rol"></p-dropdown>
+        <p-dropdown appendTo="body" [options]="roles" optionValue="roleID" 
+        optionLabel="roleName" placeholder="Seleccione un rol"
+        [(ngModel)]="selectedRole"></p-dropdown>
     </div>
     <div class="field col-4" style="padding-top: 2.32rem;">
-        <p-button icon="pi pi-save" label="Guardar cambios" styleClass="p-button-success"></p-button>
+        <p-button icon="pi pi-save" label="Guardar cambios"
+        [disabled]="!selectedRole" (onClick)="UpdateUsers()"></p-button>
     </div>
 </div>
