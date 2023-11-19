@@ -1,0 +1,12 @@
+<div class="p-fluid p-formgrid grid">
+    <div class="field col-3 pt-5">
+        <span style="width: 100%;" class="p-float-label" >
+            <input pInputText id="nombre" [(ngModel)]="Nombre" style="width: 100%;" type="text"/> 
+            <label for="nombre">Nombre de la cuadrilla:</label>
+        </span>
+    </div>
+    <div class="field col-3 pt-5">
+        <p-button [disabled]="!Nombre" icon="pi pi-save" label="Guardar"
+        styleClass="p-button-success" (onClick)="crearCuadrilla()"></p-button>
+    </div>
+</div>

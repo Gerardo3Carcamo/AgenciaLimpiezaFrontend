@@ -33,7 +33,8 @@
             </div>
             <div class="field col-6">
                 <p-card header="Tareas disponibles">
-                    <p-table [value]="TareasTable" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '35rem' }">
+                    <p-table [value]="TareasTable" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '35rem' }"
+                    [paginator]="true" [rows]="5">
                         <ng-template pTemplate="caption"> 
                             <p-button pTooltip="Recargar tabla" icon="pi pi-refresh" (onClick)="GetTareas()"></p-button>    
                         </ng-template>
@@ -53,7 +54,8 @@
                                 <td style="text-align: center; width: 20%;">{{ product.colonia }}</td>
                                 <td style="text-align: center; width: 20%;">{{ product.descripcion }}</td>
                                 <td style="text-align: center; width: 20%;">
-                                    <p-button icon="pi pi-check"></p-button>
+                                    <p-button icon="pi pi-check" pTooltip="Asignar tarea a mi cuadrilla"
+                                    (onClick)="AsignarTarea(product)"></p-button>
                                 </td>
                             </tr>
                         </ng-template>

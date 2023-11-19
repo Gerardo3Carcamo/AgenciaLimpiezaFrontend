@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit{
     }
     this.api.PostMethod(params, 'Usuario/Login').subscribe(x=>{
       if(x.data == 'DONE'){
+        console.log('Usuario completo',x)
         localStorage.setItem("session", x.session.toString())
+        localStorage.setItem("userID", x.userID.toString())
+        console.log('Usuario ID', localStorage.getItem("userID"))
         this.redirect('home')
       }else{
         this.alert.error('Credenciales incorrectas, verifiquelas de nuevo', '');

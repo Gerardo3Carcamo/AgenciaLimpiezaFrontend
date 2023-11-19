@@ -29,6 +29,7 @@ export class NavigationMenuComponent implements OnInit{
     if($myParam === 'log-out'){
       console.log('cerrando')
       localStorage.removeItem("session");
+      localStorage.removeItem("userID")
       localStorage.setItem("session", 'undefined')
       const navigationDetails: string[] = ['/'];
       console.log('cerrado')

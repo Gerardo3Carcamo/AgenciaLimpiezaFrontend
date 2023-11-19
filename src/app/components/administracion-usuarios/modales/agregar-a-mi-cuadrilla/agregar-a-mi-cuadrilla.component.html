@@ -1,0 +1,10 @@
+<div class="p-fluid p-formgrid grid">
+    <div class="field col-3">
+        <p-dropdown appendTo="body" [options]="users" optionLabel="name" optionValue="userID"
+        placeholder="Usuario" [(ngModel)]="userSelected"></p-dropdown>
+    </div>
+    <div class="field col-3">
+        <p-button icon="pi pi-save" label="Guardar" (onClick)="InsertUsuarioCuadrilla()"
+        styleClass="p-button-success" [disabled]="!userSelected"></p-button>
+    </div>
+</div>

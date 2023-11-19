@@ -80,4 +80,19 @@ export class CatalogosComponent implements OnInit{
     })
   }
 
+  AsignarTarea(product){
+    let params = {
+      CuadrillaID: parseInt(localStorage.getItem("cuadrilla")),
+      TareaID: parseInt(product.tareaID)
+    }
+    this.api.PostMethod(params, 'Tarea/AsignarTareasCuadrilla').subscribe(x=>{
+      if(!x.error){
+        this.alert.success('OK', 'Se asigno la tarea a la cuadrilla');
+      }else{
+        this.alert.error('Error', 'No se pudo asignar la tarea a la cuadrilla');
+      }
+      this.GetTareas();
+    });
+  }
+
 }

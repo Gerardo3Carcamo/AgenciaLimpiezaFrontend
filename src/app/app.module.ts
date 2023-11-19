@@ -26,6 +26,8 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { TabViewModule } from 'primeng/tabview';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CrearCuadrillaComponent } from './components/administracion-usuarios/modales/crear-cuadrilla/crear-cuadrilla.component';
+import { AgregarAMiCuadrillaComponent } from './components/administracion-usuarios/modales/agregar-a-mi-cuadrilla/agregar-a-mi-cuadrilla.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     HomeComponent,
     AsignarModulosComponent,
     CatalogosComponent,
-    DashboardComponent
+    DashboardComponent,
+    CrearCuadrillaComponent,
+    AgregarAMiCuadrillaComponent
   ],
   imports: [
     BrowserModule,
