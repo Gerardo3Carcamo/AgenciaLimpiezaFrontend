@@ -43,12 +43,21 @@ export class LoginComponent implements OnInit{
         console.log('Usuario completo',x)
         localStorage.setItem("session", x.session.toString())
         localStorage.setItem("userID", x.userID.toString())
+        this.GetCuadrilla()
         console.log('Usuario ID', localStorage.getItem("userID"))
         this.redirect('home')
       }else{
         this.alert.error('Credenciales incorrectas, verifiquelas de nuevo', '');
       }
     })
+  }
+
+  GetCuadrilla(){
+    this.api.PostMethod({UserID: parseInt(localStorage.getItem("userID"))}, 'Cuadrilla/GetCuadrillaByUser').subscribe((x:any)=>{
+      if(!x.error){
+        localStorage.setItem("cuadrilla", x.data.cuadrillaID.toString())
+      }
+    });
   }
 
   openSignUp(){

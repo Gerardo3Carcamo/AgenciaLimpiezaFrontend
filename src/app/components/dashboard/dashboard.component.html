@@ -1,1 +1,11 @@
-<app-navigation-menu></app-navigation-menu>
+<app-navigation-menu class="pb-4"></app-navigation-menu>
+<div class="p-fluid p-formgrid grid pt-6 bg-white">
+    <div class="field col-4">
+        <h2 class="text-center">Tareas Completas e Incompletas</h2>
+        <p-chart [height]="'25rem'" [data]="data" type="pie" [options]="options"></p-chart>
+    </div>
+    <div class="field col-4">
+        <h2 class="text-center">Estatus de tareas por cuadrillas</h2>
+        <p-chart [height]="'25rem'" [data]="dataByCuadrillas" type="bar" [options]="optionsBar"></p-chart>
+    </div>
+</div>

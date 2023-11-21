@@ -1,0 +1,30 @@
+<div class="flex flex-wrap flex-row pl-2 pt-2">
+    <div class="flex card pl-2 ml-0" style="max-width: 23rem; min-width: 23rem;" *ngFor="let item of homeworks">
+        <div class="card-body mt-0">
+            <h5 class="card-title" *ngIf="item.estatus === 1" style="color: red;">ID: {{item.tareaID}} - {{item.nombre}} (Incompleta)</h5>
+            <h5 class="card-title" *ngIf="item.estatus === 0" style="color: green;">ID: {{item.tareaID}} - {{item.nombre}} (Completada)</h5>
+            <p-divider align="left">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-book mr-2"></i>
+                    <b>Descripción</b>
+                </div>
+            </p-divider>
+            <p class="card-text">{{item.descripcion}}</p>
+            <p-divider align="left">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-home mr-2"></i>
+                    <b>Colonia</b>
+                </div>
+            </p-divider>
+            <p class="card-text">{{item.colonia}}</p>
+        </div>
+        <div class="relative" style="min-width: 100%; padding: auto; margin-left: 0;" *ngIf="item.estatus === 1">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 mb-0" style="bottom: 0; left: 0; padding-right: 1rem;">
+                    <p-button label="Marcar como finalizada" (onClick)="markAsFinished(item)"
+                    icon="pi pi-check" styleClass="p-button-success" *ngIf="button"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

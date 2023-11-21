@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faGear, faHome, faChartSimple, faRightFromBracket, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faHome, faChartSimple, faRightFromBracket, faFolderOpen, faBook, faHouseUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -20,9 +20,11 @@ export class NavigationMenuComponent implements OnInit{
   protected _items: any = [
     {url: 'home', icon: faHome, iconColor: 'blue', description: 'Inicio', user: 2},
     {url: 'dashboard', icon: faChartSimple, iconColor: 'pink', description: 'Dashboard',user: 1},
+    {url: 'finish-homework', icon: faBook, iconColor: 'blue', description: 'Terminar tarea', user: 1},
     {url: 'catalogos', icon: faFolderOpen, iconColor: 'yellow', description: 'Catalogos', user: 1},
     {url: 'admin-usuarios', icon: faGear, iconColor: 'gray', description: 'Administración', user: 1},
-    {url: 'log-out', icon: faRightFromBracket, iconColor: 'red', description: 'Cerrar sesion', user: 1},
+    {url: 'employee', icon: faHouseUser, iconColor: 'blue', description: 'Empleados', user: 3},
+    {url: 'log-out', icon: faRightFromBracket, iconColor: 'red', description: 'Cerrar sesion', user: 1, custom: 3},
   ];
 
   redirect($myParam: string = ''): void {
@@ -31,6 +33,7 @@ export class NavigationMenuComponent implements OnInit{
       localStorage.removeItem("session");
       localStorage.removeItem("userID")
       localStorage.setItem("session", 'undefined')
+      localStorage.setItem("cuadrilla", 'undefined')
       const navigationDetails: string[] = ['/'];
       console.log('cerrado')
       this.router.navigate(navigationDetails);

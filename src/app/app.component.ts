@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faPumpSoap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit{
 
   title = 'Sistema gestion de limpieza';
 
+  icon = faPumpSoap;
   correo:any;
   password:any;
 

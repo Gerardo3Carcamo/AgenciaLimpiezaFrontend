@@ -28,6 +28,9 @@ import { TooltipModule } from 'primeng/tooltip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CrearCuadrillaComponent } from './components/administracion-usuarios/modales/crear-cuadrilla/crear-cuadrilla.component';
 import { AgregarAMiCuadrillaComponent } from './components/administracion-usuarios/modales/agregar-a-mi-cuadrilla/agregar-a-mi-cuadrilla.component';
+import { FinishHomeworkComponent } from './components/finish-homework/finish-homework.component';
+import { ChartModule } from 'primeng/chart';
+import { EmployeesComponent } from './components/employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { AgregarAMiCuadrillaComponent } from './components/administracion-usuari
     CatalogosComponent,
     DashboardComponent,
     CrearCuadrillaComponent,
-    AgregarAMiCuadrillaComponent
+    AgregarAMiCuadrillaComponent,
+    FinishHomeworkComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ import { AgregarAMiCuadrillaComponent } from './components/administracion-usuari
     SpeedDialModule,
     TabViewModule,
     InputTextareaModule,
-    TooltipModule
+    TooltipModule,
+    ChartModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

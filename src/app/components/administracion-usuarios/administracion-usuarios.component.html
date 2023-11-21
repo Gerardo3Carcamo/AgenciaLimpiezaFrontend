@@ -1,23 +1,11 @@
 <app-navigation-menu></app-navigation-menu>
 <div class="pt-4 p-fluid p-formgrid grid">
-
     <div class="field col-6">
         <p-card header="Mi cuadrilla: {{cuadrilla?.cuadrillaName}}">
-            <div [style]="'position: fixed; bottom:' + spaceBottom + 'rem; right: 5.5rem;'">
+            <div [style]="'position: fixed; bottom:' + spaceBottom + 'rem; right: 5.5rem; z-index: 10000;'">
                 <p-speedDial [model]="itemAdd" radius="120" direction="up" buttonClassName="p-button-success"></p-speedDial>
             </div>
             <p-table [value]="usersCuadrilla" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }" #dt1>
-                <ng-template pTemplate="caption">
-                    <div class="flex">
-                        <p-button icon="pi pi-file-excel" (onClick)="exportExcel()"
-                            class="p-button-success mr-2"></p-button>
-                        <span class="p-input-icon-left ml-auto">
-                            <i class="pi pi-search"></i>
-                            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
-                                placeholder="Search keyword" />
-                        </span>
-                    </div>
-                </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="text-align: center;">Nombre</th>
@@ -37,18 +25,8 @@
     </div>
     <div class="field col-6">
         <p-card header="Usuarios">
-            <p-table [value]="users" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }" #dt1>
-                <ng-template pTemplate="caption">
-                    <div class="flex">
-                        <p-button icon="pi pi-file-excel" (onClick)="exportExcel()"
-                            class="p-button-success mr-2"></p-button>
-                        <span class="p-input-icon-left ml-auto">
-                            <i class="pi pi-search"></i>
-                            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
-                                placeholder="Search keyword" />
-                        </span>
-                    </div>
-                </ng-template>
+            <p-table [value]="users" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }" #dt1
+            [paginator]="true" rows="5">
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="text-align: center;">Nombre</th>

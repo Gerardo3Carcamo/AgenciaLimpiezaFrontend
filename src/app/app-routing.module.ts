@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './app.component';
 import { CatalogosComponent } from './components/catalogos/catalogos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FinishHomeworkComponent } from './components/finish-homework/finish-homework.component';
+import { EmployeesComponent } from './components/employees/employees.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'catalogos', component: CatalogosComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'finish-homework', component: FinishHomeworkComponent},
+  {path: 'employee', component: EmployeesComponent},
 
 ];
  

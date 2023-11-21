@@ -52,11 +52,14 @@ export class AdministracionUsuariosComponent implements OnInit{
   GetCuadrilla(){
     this.api.PostMethod({UserID: parseInt(localStorage.getItem("userID"))}, 'Cuadrilla/GetCuadrillaByUser').subscribe((x:any)=>{
       if(!x.error){
-        this.itemAdd.splice(1, 1);
-        this.spaceBottom = 9;
-        this.cuadrilla = x.data;
-        console.log(this.cuadrilla)
-        localStorage.setItem("cuadrilla", x.data.cuadrillaID.toString())
+        if(x.data !== null){
+          console.log('Cuadrilla', x.data)
+          this.itemAdd.splice(1, 1);
+          this.spaceBottom = 9;
+          this.cuadrilla = x.data;
+          console.log(this.cuadrilla)
+          localStorage.setItem("cuadrilla", x.data.cuadrillaID.toString())
+        }
       }
     });
   }
