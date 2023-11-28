@@ -1,6 +1,13 @@
-<div class="flex flex-wrap flex-row pl-2 pt-2">
+<div class="flex flex-wrap flex-row pl-2 pt-2 pb-4">
     <div class="flex card pl-2 ml-0" style="max-width: 23rem; min-width: 23rem;" *ngFor="let item of homeworks">
+        <div class="relative">
+            <div class="absolute top-0 right-0">
+                <p-button icon="pi pi-eye" pTooltip="Ver imagen" *ngIf="item.estatus === 0"
+                styleClass="p-button-rounded p-button-warning p-button-text" (onClick)="emitTareaID(item)"></p-button>
+            </div>
+        </div>
         <div class="card-body mt-0">
+            <br>
             <h5 class="card-title" *ngIf="item.estatus === 1" style="color: red;">ID: {{item.tareaID}} - {{item.nombre}} (Incompleta)</h5>
             <h5 class="card-title" *ngIf="item.estatus === 0" style="color: green;">ID: {{item.tareaID}} - {{item.nombre}} (Completada)</h5>
             <p-divider align="left">
@@ -18,11 +25,12 @@
             </p-divider>
             <p class="card-text">{{item.colonia}}</p>
         </div>
-        <div class="relative" style="min-width: 100%; padding: auto; margin-left: 0;" *ngIf="item.estatus === 1">
+        <div class="relative" style="min-width: 100%; padding: auto; margin-left: 0;">
             <div class="p-fluid p-formgrid grid">
-                <div class="field col-12 mb-0" style="bottom: 0; left: 0; padding-right: 1rem;">
-                    <p-button label="Marcar como finalizada" (onClick)="markAsFinished(item)"
-                    icon="pi pi-check" styleClass="p-button-success" *ngIf="button"></p-button>
+                <div class="field col-12 mb-0" style="bottom: 0; left: 0; padding-right: 1rem; align-items: center;" *ngIf="item.estatus === 1">
+                    <p-fileUpload mode="basic" chooseLabel="Seleccione imagen a cargar" name="demo[]"
+                    accept="image/*" maxFileSize="1000000" class="w-full" [auto]="true"
+                    (onSelect)="markAsFinished(item, $event)"></p-fileUpload>
                 </div>
             </div>
         </div>

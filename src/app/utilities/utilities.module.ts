@@ -6,6 +6,8 @@ import { GenericCardComponent } from './generic-card/generic-card.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
+import { TooltipModule } from 'primeng/tooltip';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [NavigationMenuComponent, GenericCardComponent],
@@ -14,7 +16,9 @@ import { DividerModule } from 'primeng/divider';
     FontAwesomeModule,
     CardModule,
     ButtonModule,
-    DividerModule
+    DividerModule,
+    TooltipModule,
+    FileUploadModule
   ],
   exports:[NavigationMenuComponent, GenericCardComponent]
 })

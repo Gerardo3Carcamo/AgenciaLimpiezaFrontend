@@ -31,6 +31,8 @@ import { AgregarAMiCuadrillaComponent } from './components/administracion-usuari
 import { FinishHomeworkComponent } from './components/finish-homework/finish-homework.component';
 import { ChartModule } from 'primeng/chart';
 import { EmployeesComponent } from './components/employees/employees.component';
+import { ViewImageComponent } from './components/finish-homework/Modales/view-image/view-image.component';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
     CrearCuadrillaComponent,
     AgregarAMiCuadrillaComponent,
     FinishHomeworkComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    ViewImageComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
     TabViewModule,
     InputTextareaModule,
     TooltipModule,
-    ChartModule
+    ChartModule,
+    ImageModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

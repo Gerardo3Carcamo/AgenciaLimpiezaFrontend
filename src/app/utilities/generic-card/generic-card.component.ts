@@ -17,9 +17,24 @@ export class GenericCardComponent {
   }
 
   @Output() finishHomework = new EventEmitter<any>();
+  @Output() viewImage = new EventEmitter<any>();
 
-  markAsFinished(homework: any) {
-    this.finishHomework.emit(homework.tareaID);
+  emitTareaID(homework){
+    this.viewImage.emit(homework.tareaID)
+  }
+
+  markAsFinished(homework: any, event: any) {
+    let files = event.files;
+    if (files && files.length > 0) {
+      let file = files[0];
+      let data = {
+        tareaID: homework.tareaID,
+        file: file
+      };
+      this.finishHomework.emit(data);
+    }else{
+      this.finishHomework.emit(homework.tareaID)
+    }
   }
   
 }
